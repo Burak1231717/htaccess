@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# Ana sayfa: index.html zaten kök dizinde olduğu için yönlendirme gerekmez
+
+# /iletisim → about.html
+RewriteRule ^iletisim$ about.html [L]
+
+# /neden-biz → hizmet.html
+RewriteRule ^neden-biz$ hizmet.html [L]
+
+# Eğer doğrudan .html'siz yazılan dosyalar varsa onları da otomatik eşle
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^/]+)$ $1.html [L]
